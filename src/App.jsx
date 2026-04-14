@@ -278,7 +278,7 @@ function SessionModal({ ev, dayColor, inPlan, registered, onToggle, onRegister, 
           </div>
           {isAction ? (
             <button onClick={() => { onRegister(ev.id); onClose(); }} style={{ ...btnPrimary, background: registered ? dayColor : white, color: registered ? white : C.darkBrown }}>
-              {registered ? "✓ " + actionLabel + "ed" : actionLabel}
+              {registered ? "✓ " + actionLabel : actionLabel}
             </button>
           ) : (
             <button onClick={() => { onToggle(ev); onClose(); }} style={{ ...btnPrimary }}>
@@ -319,7 +319,7 @@ export default function App() {
 
   if (screen === "splash") {
     return (
-      <div style={{ fontFamily: font, maxWidth: 480, margin: "0 auto", minHeight: "100vh", position: "relative", ...BG }}>
+      <div style={{ fontFamily: font, maxWidth: 480, margin: "0 auto", minHeight: "100dvh", position: "relative", ...BG }}>
         <DotBg />
         <div style={{ position: "relative", zIndex: 1 }}>
           <div style={{ padding: "max(env(safe-area-inset-top, 0px), 44px) 24px 28px", textAlign: "center" }}>
@@ -361,7 +361,7 @@ export default function App() {
   }
 
   return (
-    <div style={{ fontFamily: font, maxWidth: 480, margin: "0 auto", paddingBottom: "calc(80px + env(safe-area-inset-bottom, 0px))", minHeight: "100vh", position: "relative", ...BG }}>
+    <div style={{ fontFamily: font, maxWidth: 480, margin: "0 auto", paddingBottom: "calc(80px + env(safe-area-inset-bottom, 0px))", minHeight: "100dvh", position: "relative", ...BG }}>
       <DotBg />
       <div style={{ position: "relative", zIndex: 1 }}>
         {notification && (
