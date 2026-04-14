@@ -147,7 +147,7 @@ const NavIcon = ({ v, active }) => {
   return <IconChat color={c} />;
 };
 
-const inp = { width: "100%", padding: "10px 12px", borderRadius: 8, border: "0.5px solid rgba(255,255,255,0.35)", fontSize: 14, boxSizing: "border-box", background: "rgba(0,0,0,0.28)", color: white, fontFamily: font };
+const inp = { width: "100%", padding: "10px 12px", borderRadius: 8, border: "0.5px solid rgba(255,255,255,0.35)", fontSize: 16, boxSizing: "border-box", background: "rgba(0,0,0,0.28)", color: white, fontFamily: font };
 const card = { background: "rgba(0,0,0,0.30)", border: "0.5px solid rgba(255,255,255,0.18)", borderRadius: 12, padding: "14px", marginBottom: 10 };
 const btnPrimary = { background: white, color: C.darkBrown, border: "none", borderRadius: 8, padding: "11px 20px", fontSize: 14, fontWeight: 600, cursor: "pointer", width: "100%", fontFamily: font };
 const DotBg = () => (<div style={{ position: "fixed", inset: 0, opacity: 0.08, backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "18px 18px", pointerEvents: "none", zIndex: 0 }} />);
@@ -322,7 +322,7 @@ export default function App() {
       <div style={{ fontFamily: font, maxWidth: 480, margin: "0 auto", minHeight: "100vh", position: "relative", ...BG }}>
         <DotBg />
         <div style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ padding: "44px 24px 28px", textAlign: "center" }}>
+          <div style={{ padding: "max(env(safe-area-inset-top, 0px), 44px) 24px 28px", textAlign: "center" }}>
             <div style={{ fontSize: 11, color: whiteDD, letterSpacing: 3, textTransform: "uppercase", marginBottom: 16, fontFamily: font }}>Purple Maiʻa · 2026</div>
             <div style={{ fontFamily: "'Knewave', sans-serif", fontSize: 52, color: "#FDF6EC", lineHeight: 1, marginBottom: 16, letterSpacing: 1 }}>EĀHOU FEST</div>
             <div style={{ fontSize: 14, color: whiteD, fontFamily: font, marginBottom: 4 }}>May 1–3, 2026</div>
@@ -361,11 +361,11 @@ export default function App() {
   }
 
   return (
-    <div style={{ fontFamily: font, maxWidth: 480, margin: "0 auto", paddingBottom: 80, minHeight: "100vh", position: "relative", ...BG }}>
+    <div style={{ fontFamily: font, maxWidth: 480, margin: "0 auto", paddingBottom: "calc(80px + env(safe-area-inset-bottom, 0px))", minHeight: "100vh", position: "relative", ...BG }}>
       <DotBg />
       <div style={{ position: "relative", zIndex: 1 }}>
         {notification && (
-          <div style={{ position: "fixed", top: 16, left: "50%", transform: "translateX(-50%)", background: "rgba(255,255,255,0.95)", color: C.darkBrown, borderRadius: 20, padding: "10px 20px", fontSize: 13, fontWeight: 500, zIndex: 100, whiteSpace: "nowrap", fontFamily: font, display: "flex", alignItems: "center", gap: 8 }}>
+          <div style={{ position: "fixed", top: "max(env(safe-area-inset-top, 0px), 16px)", left: "50%", transform: "translateX(-50%)", background: "rgba(255,255,255,0.95)", color: C.darkBrown, borderRadius: 20, padding: "10px 20px", fontSize: 13, fontWeight: 500, zIndex: 100, whiteSpace: "nowrap", fontFamily: font, display: "flex", alignItems: "center", gap: 8 }}>
             <IconBell color={C.orange} size={15} /> {notification}
           </div>
         )}
@@ -517,9 +517,9 @@ export default function App() {
             </div>
           )}
         </div>
-        <nav style={{ position: "fixed", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "100%", maxWidth: 480, background: "rgba(61,26,8,0.88)", borderTop: "0.5px solid rgba(255,255,255,0.12)", display: "flex", zIndex: 10 }}>
+        <nav style={{ position: "fixed", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "100%", maxWidth: 480, background: "rgba(61,26,8,0.97)", borderTop: "0.5px solid rgba(255,255,255,0.12)", display: "flex", zIndex: 10, paddingBottom: "env(safe-area-inset-bottom, 0px)" }}>
           {VIEWS.map((v, i) => (
-            <button key={v} onClick={() => setView(v)} style={{ flex: 1, padding: "10px 0 8px", border: "none", background: "none", cursor: "pointer", fontSize: 11, color: view === v ? C.tan : whiteDD, fontWeight: view === v ? 600 : 400, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, fontFamily: font }}>
+            <button key={v} onClick={() => setView(v)} style={{ flex: 1, padding: "12px 0 10px", border: "none", background: "none", cursor: "pointer", fontSize: 11, color: view === v ? C.tan : whiteDD, fontWeight: view === v ? 600 : 400, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, fontFamily: font, WebkitTapHighlightColor: "transparent" }}>
               <NavIcon v={v} active={view === v} />
               {NAV_LABELS[i]}
             </button>
