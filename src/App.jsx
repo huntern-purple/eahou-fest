@@ -6,9 +6,26 @@ const C = {
 };
 const font = "'Poppins', sans-serif";
 const white = "#fff";
-const whiteD = "rgba(255,255,255,0.88)";
-const whiteDD = "rgba(255,255,255,0.62)";
+const whiteD = "rgba(255,255,255,0.95)";
+const whiteDD = "rgba(255,255,255,0.72)";
 const BG = { background: `linear-gradient(160deg, ${C.gold} 0%, ${C.orange} 70%, ${C.brown} 100%)` };
+
+const VIEW_ONLY_EVENTS = [
+  "Kīpaepae",
+  "Kekuhi Kealiʻikanakaʻole",
+  "Eahou: Keoni",
+  "Purple Kula ʻŌpio Panel",
+  "EarthFrame",
+  "ʻĀina Foundry Tech Showcase",
+  "Hawaiʻi Co-op Hui",
+  "Pau Hana on the Terraces",
+  "Hoʻihoʻi EA: EA in Our Lifetime",
+  "Governance, Sovereignty & Community Power",
+  "Nite Mākeke & Fashion Show",
+  "Opening Panel: Maui Resources",
+  "Eahou Haku Waiwai Design Challenge",
+  "Haku Waiwai Sharebacks",
+];
 
 const festivalDays = [
   {
@@ -147,9 +164,9 @@ const NavIcon = ({ v, active }) => {
   return <IconChat color={c} />;
 };
 
-const inp = { width: "100%", padding: "10px 12px", borderRadius: 8, border: "0.5px solid rgba(255,255,255,0.35)", fontSize: 16, boxSizing: "border-box", background: "rgba(0,0,0,0.28)", color: white, fontFamily: font };
+const inp = { width: "100%", padding: "10px 12px", borderRadius: 8, border: "0.5px solid rgba(255,255,255,0.35)", fontSize: "1.05em", boxSizing: "border-box", background: "rgba(0,0,0,0.28)", color: white, fontFamily: font };
 const card = { background: "rgba(0,0,0,0.30)", border: "0.5px solid rgba(255,255,255,0.18)", borderRadius: 12, padding: "14px", marginBottom: 10 };
-const btnPrimary = { background: white, color: C.darkBrown, border: "none", borderRadius: 8, padding: "11px 20px", fontSize: 14, fontWeight: 600, cursor: "pointer", width: "100%", fontFamily: font };
+const btnPrimary = { background: white, color: C.darkBrown, border: "none", borderRadius: 8, padding: "11px 20px", fontSize: "0.925em", fontWeight: 600, cursor: "pointer", width: "100%", fontFamily: font };
 const DotBg = () => (<div style={{ position: "fixed", inset: 0, opacity: 0.08, backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "18px 18px", pointerEvents: "none", zIndex: 0 }} />);
 
 const themeInfo = [
@@ -163,34 +180,34 @@ function MeaningWidget() {
   return (
     <div style={{ ...card, padding: "16px" }}>
       <div style={{ textAlign: "center", marginBottom: 16, borderBottom: "0.5px solid rgba(255,255,255,0.15)", paddingBottom: 14 }}>
-        <div style={{ fontSize: 11, color: whiteDD, letterSpacing: 3, textTransform: "uppercase", fontFamily: font, marginBottom: 10 }}>EA · HOU · / ˈea ˈhouː /</div>
-        <p style={{ fontSize: 13, color: whiteD, fontFamily: font, lineHeight: 1.7, margin: "0 0 10px" }}><em style={{ color: C.tan }}>Ea</em> is not a moment — it is a living current. Sovereignty. Life. Breath. The Hawaiian word holds all three meanings at once, inseparable from each other, as they are inseparable in life itself.</p>
-        <p style={{ fontSize: 13, color: whiteD, fontFamily: font, lineHeight: 1.7, margin: "0 0 10px" }}><em style={{ color: C.tan }}>Hou</em> means again. New. Renewed. To breathe again.</p>
-        <p style={{ fontSize: 13, color: whiteD, fontFamily: font, lineHeight: 1.7, margin: 0 }}>Together, <em style={{ color: C.tan }}>Eahou</em> is the continuous restoration of sovereignty — not a status to be achieved, but a practice to be lived daily in relationship with ʻāina, lāhui, and each other.</p>
+        <div style={{ fontSize: "0.7375em", color: whiteDD, letterSpacing: 3, textTransform: "uppercase", fontFamily: font, marginBottom: 10 }}>EA · HOU · / ˈea ˈhouː /</div>
+        <p style={{ fontSize: "0.8625em", color: whiteD, fontFamily: font, lineHeight: 1.7, margin: "0 0 10px" }}><em style={{ color: C.tan }}>Ea</em> is not a moment — it is a living current. Sovereignty. Life. Breath. The Hawaiian word holds all three meanings at once, inseparable from each other, as they are inseparable in life itself.</p>
+        <p style={{ fontSize: "0.8625em", color: whiteD, fontFamily: font, lineHeight: 1.7, margin: "0 0 10px" }}><em style={{ color: C.tan }}>Hou</em> means again. New. Renewed. To breathe again.</p>
+        <p style={{ fontSize: "0.8625em", color: whiteD, fontFamily: font, lineHeight: 1.7, margin: 0 }}>Together, <em style={{ color: C.tan }}>Eahou</em> is the continuous restoration of sovereignty — not a status to be achieved, but a practice to be lived daily in relationship with ʻāina, lāhui, and each other.</p>
       </div>
-      <div style={{ fontSize: 11, color: whiteDD, letterSpacing: 2, textTransform: "uppercase", fontFamily: font, marginBottom: 12 }}>The Three Pillars of Eahou Fest</div>
+      <div style={{ fontSize: "0.7375em", color: whiteDD, letterSpacing: 2, textTransform: "uppercase", fontFamily: font, marginBottom: 12 }}>The Three Pillars of Eahou Fest</div>
       {themeInfo.map(t => (
         <div key={t.key} style={{ background: "rgba(0,0,0,0.25)", border: `0.5px solid ${t.color}55`, borderRadius: 10, marginBottom: 8, overflow: "hidden" }}>
           <button onClick={() => setOpen(open === t.key ? null : t.key)} style={{ width: "100%", background: "none", border: "none", cursor: "pointer", padding: "12px 14px", display: "flex", alignItems: "center", gap: 10, textAlign: "left" }}>
             <div style={{ width: 10, height: 10, borderRadius: "50%", background: t.color, flexShrink: 0 }} />
             <div style={{ flex: 1 }}>
-              <div style={{ fontSize: 13, fontWeight: 600, color: white, fontFamily: font }}>{t.label}</div>
-              <div style={{ fontSize: 11, color: t.color === "#5b0a38" ? "#d080b0" : t.color, fontStyle: "italic", fontFamily: font }}>{t.sub}</div>
+              <div style={{ fontSize: "0.8625em", fontWeight: 600, color: white, fontFamily: font }}>{t.label}</div>
+              <div style={{ fontSize: "0.7375em", color: t.color === "#5b0a38" ? "#d080b0" : t.color, fontStyle: "italic", fontFamily: font }}>{t.sub}</div>
             </div>
-            <div style={{ color: whiteDD, fontSize: 14, transform: open === t.key ? "rotate(180deg)" : "rotate(0)", transition: "transform 0.2s" }}>▾</div>
+            <div style={{ color: whiteDD, fontSize: "0.925em", transform: open === t.key ? "rotate(180deg)" : "rotate(0)", transition: "transform 0.2s" }}>▾</div>
           </button>
-          {open === t.key && <div style={{ padding: "0 14px 14px", fontSize: 13, color: whiteD, fontFamily: font, lineHeight: 1.7 }}>{t.body}</div>}
+          {open === t.key && <div style={{ padding: "0 14px 14px", fontSize: "0.8625em", color: whiteD, fontFamily: font, lineHeight: 1.7 }}>{t.body}</div>}
         </div>
       ))}
       <div style={{ background: "rgba(0,0,0,0.2)", border: "0.5px solid rgba(255,255,255,0.12)", borderRadius: 10, padding: "14px", marginTop: 4, textAlign: "center" }}>
-        <div style={{ fontSize: 14, fontStyle: "italic", color: white, fontFamily: font, marginBottom: 6 }}>Mōhala i ka wai ka maka o ka pua</div>
-        <div style={{ fontSize: 12, color: whiteD, fontFamily: font, marginBottom: 6 }}>Flowers thrive where there is water</div>
-        <div style={{ fontSize: 10, color: whiteDD, letterSpacing: 1, fontFamily: font }}>ʻŌlelo Noʻeau #2178</div>
+        <div style={{ fontSize: "0.925em", fontStyle: "italic", color: white, fontFamily: font, marginBottom: 6 }}>Mōhala i ka wai ka maka o ka pua</div>
+        <div style={{ fontSize: "0.8em", color: whiteD, fontFamily: font, marginBottom: 6 }}>Flowers thrive where there is water</div>
+        <div style={{ fontSize: "0.675em", color: whiteDD, letterSpacing: 1, fontFamily: font }}>ʻŌlelo Noʻeau #2178</div>
       </div>
       <div style={{ marginTop: 14, borderTop: "0.5px solid rgba(255,255,255,0.12)", paddingTop: 14 }}>
-        <div style={{ fontSize: 10, color: whiteDD, letterSpacing: 2, textTransform: "uppercase", fontFamily: font, marginBottom: 8 }}>Purple Maiʻa Foundation</div>
-        <p style={{ fontSize: 12, color: whiteD, fontFamily: font, lineHeight: 1.7, margin: "0 0 8px" }}>Purple Maiʻa Foundation works at the intersection of culture, education, and technology in Hawaiʻi — building Indigenous tech tools, cooperative economic infrastructure, and the next generation of culturally grounded ʻŌiwi innovators.</p>
-        <p style={{ fontSize: 12, color: whiteD, fontFamily: font, lineHeight: 1.7, margin: 0 }}>Eahou Fest is a gathering of the lāhui and all who share the vision of a self-determined, regenerative Hawaiʻi.</p>
+        <div style={{ fontSize: "0.675em", color: whiteDD, letterSpacing: 2, textTransform: "uppercase", fontFamily: font, marginBottom: 8 }}>Purple Maiʻa Foundation</div>
+        <p style={{ fontSize: "0.8em", color: whiteD, fontFamily: font, lineHeight: 1.7, margin: "0 0 8px" }}>Purple Maiʻa Foundation works at the intersection of culture, education, and technology in Hawaiʻi — building Indigenous tech tools, cooperative economic infrastructure, and the next generation of culturally grounded ʻŌiwi innovators.</p>
+        <p style={{ fontSize: "0.8em", color: whiteD, fontFamily: font, lineHeight: 1.7, margin: 0 }}>Eahou Fest is a gathering of the lāhui and all who share the vision of a self-determined, regenerative Hawaiʻi.</p>
       </div>
     </div>
   );
@@ -201,31 +218,32 @@ function SessionCard({ ev, dayColor, inPlan, registered, onToggle, onRegister, o
   const isAction = ev.preRegister || ev.rsvp;
   const actionLabel = ev.rsvp ? "RSVP" : "PRE-REGISTER";
   const actionDone = registered;
+  const isViewOnly = VIEW_ONLY_EVENTS.some(n => ev.name.toLowerCase().includes(n.toLowerCase()));
   return (
-    <div style={{ background: "rgba(0,0,0,0.32)", border: `0.5px solid ${dayColor}55`, borderRadius: 14, padding: "14px 16px", marginBottom: 10 }}>
+    <div style={{ background: "rgba(0,0,0,0.32)", border: `0.5px solid ${dayColor}55`, borderRadius: 14, padding: "16px 18px", marginBottom: 10 }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
-        {ev.type && <div style={{ fontSize: 10, color: dimColor, letterSpacing: 1.5, textTransform: "uppercase", fontFamily: font, paddingTop: 2 }}>{ev.type}</div>}
+        {ev.type && <div style={{ fontSize: "0.675em", color: dimColor, letterSpacing: 1.5, textTransform: "uppercase", fontFamily: font, paddingTop: 2 }}>{ev.type}</div>}
         <div style={{ display: "flex", gap: 6, alignItems: "center", marginLeft: "auto" }}>
-          {isAction ? (
-            <button onClick={() => onRegister(ev.id)} style={{ background: actionDone ? dayColor : "transparent", border: `1px solid ${dayColor}`, borderRadius: 20, padding: "5px 14px", fontSize: 11, color: actionDone ? white : dimColor, fontWeight: 600, cursor: "pointer", fontFamily: font, letterSpacing: 0.5, transition: "all 0.15s" }}>
+          {!isViewOnly && (isAction ? (
+            <button onClick={() => onRegister(ev.id)} style={{ background: actionDone ? dayColor : "transparent", border: `1px solid ${dayColor}`, borderRadius: 20, padding: "5px 14px", fontSize: "0.7375em", color: actionDone ? white : dimColor, fontWeight: 600, cursor: "pointer", fontFamily: font, letterSpacing: 0.5, transition: "all 0.15s" }}>
               {actionDone ? "✓ " + actionLabel : actionLabel}
             </button>
           ) : (
-            <button onClick={() => onToggle(ev)} style={{ background: inPlan ? dayColor : "rgba(255,255,255,0.14)", border: `0.5px solid ${inPlan ? dayColor : "rgba(255,255,255,0.25)"}`, borderRadius: 20, padding: "5px 14px", fontSize: 11, color: inPlan ? white : whiteD, fontWeight: inPlan ? 600 : 400, cursor: "pointer", fontFamily: font }}>
+            <button onClick={() => onToggle(ev)} style={{ background: inPlan ? dayColor : "rgba(255,255,255,0.14)", border: `0.5px solid ${inPlan ? dayColor : "rgba(255,255,255,0.25)"}`, borderRadius: 20, padding: "5px 14px", fontSize: "0.7375em", color: inPlan ? white : whiteD, fontWeight: inPlan ? 600 : 400, cursor: "pointer", fontFamily: font }}>
               {inPlan ? "✓ Added" : "+ Add"}
             </button>
-          )}
+          ))}
         </div>
       </div>
-      <div style={{ fontSize: 16, fontWeight: 700, color: white, fontFamily: font, lineHeight: 1.3, marginBottom: ev.subtitle ? 4 : 8 }}>{ev.name}</div>
-      {ev.subtitle && <div style={{ fontSize: 13, color: whiteD, fontFamily: font, lineHeight: 1.5, marginBottom: 8 }}>{ev.subtitle}</div>}
+      <div style={{ fontSize: "1.1125em", fontWeight: 700, color: white, fontFamily: font, lineHeight: 1.3, marginBottom: ev.subtitle ? 4 : 8 }}>{ev.name}</div>
+      {ev.subtitle && <div style={{ fontSize: "0.925em", color: whiteD, fontFamily: font, lineHeight: 1.5, marginBottom: 8 }}>{ev.subtitle}</div>}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         {ev.location ? (
-          <div style={{ fontSize: 12, color: whiteDD, display: "flex", alignItems: "center", gap: 4, fontFamily: "monospace" }}>
+          <div style={{ fontSize: "0.8625em", color: whiteDD, display: "flex", alignItems: "center", gap: 4, fontFamily: "monospace" }}>
             <IconPin color={whiteDD} size={12} />{ev.location}
           </div>
         ) : <div />}
-        <button onClick={() => onMore(ev)} style={{ background: "none", border: "none", cursor: "pointer", color: whiteDD, fontSize: 12, fontFamily: font, padding: 0, marginLeft: 8 }}>More →</button>
+        <button onClick={() => onMore(ev)} style={{ background: "none", border: "none", cursor: "pointer", color: whiteDD, fontSize: "0.8em", fontFamily: font, padding: 0, marginLeft: 8 }}>More →</button>
       </div>
     </div>
   );
@@ -234,11 +252,11 @@ function SessionCard({ ev, dayColor, inPlan, registered, onToggle, onRegister, o
 function BlockHeader({ block }) {
   return (
     <div style={{ marginBottom: 12, marginTop: 6 }}>
-      <div style={{ fontSize: 11, color: whiteDD, letterSpacing: 2, textTransform: "uppercase", fontFamily: "monospace", marginBottom: block.note ? 4 : 0 }}>
+      <div style={{ fontSize: "1.0625em", color: whiteDD, letterSpacing: 2, textTransform: "uppercase", fontFamily: "monospace", marginBottom: block.note ? 4 : 0 }}>
         {block.timeLabel} · {block.blockType}
       </div>
       {block.note && (
-        <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 11, color: whiteDD, fontFamily: "monospace" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: "1em", color: whiteDD, fontFamily: "monospace" }}>
           <div style={{ width: 6, height: 6, borderRadius: "50%", background: whiteDD, flexShrink: 0 }} />
           {block.note}
         </div>
@@ -265,24 +283,20 @@ function SessionModal({ ev, dayColor, inPlan, registered, onToggle, onRegister, 
             </button>
           </div>
           <div style={{ display: "flex", gap: 6, marginBottom: 12, flexWrap: "wrap" }}>
-            {ev.type && <span style={{ background: dayColor, borderRadius: 20, padding: "4px 12px", fontSize: 10, color: white, fontFamily: font, letterSpacing: 1.5, textTransform: "uppercase", fontWeight: 600 }}>{ev.type}</span>}
-            <span style={{ background: "rgba(255,255,255,0.22)", borderRadius: 20, padding: "4px 12px", fontSize: 10, color: white, fontFamily: font, fontWeight: 500 }}>{ev.start}{ev.end ? ` – ${ev.end}` : ""}</span>
-            <span style={{ background: "rgba(255,255,255,0.15)", borderRadius: 20, padding: "4px 12px", fontSize: 10, color: whiteD, fontFamily: font }}>{ev.duration}</span>
+            {ev.type && <span style={{ background: dayColor, borderRadius: 20, padding: "4px 12px", fontSize: "0.675em", color: white, fontFamily: font, letterSpacing: 1.5, textTransform: "uppercase", fontWeight: 600 }}>{ev.type}</span>}
+            <span style={{ background: "rgba(255,255,255,0.22)", borderRadius: 20, padding: "4px 12px", fontSize: "0.675em", color: white, fontFamily: font, fontWeight: 500 }}>{ev.start}{ev.end ? ` – ${ev.end}` : ""}</span>
+            <span style={{ background: "rgba(255,255,255,0.15)", borderRadius: 20, padding: "4px 12px", fontSize: "0.675em", color: whiteD, fontFamily: font }}>{ev.duration}</span>
           </div>
-          <div style={{ fontSize: 20, fontWeight: 700, color: white, fontFamily: font, marginBottom: 6 }}>{ev.name}</div>
-          {ev.subtitle && <div style={{ fontSize: 14, color: whiteD, fontFamily: font, lineHeight: 1.6, marginBottom: 12 }}>{ev.subtitle}</div>}
-          {ev.location && <div style={{ fontSize: 13, color: whiteDD, display: "flex", alignItems: "center", gap: 5, marginBottom: 16, fontFamily: "monospace" }}><IconPin color={whiteDD} size={13} />{ev.location}</div>}
+          <div style={{ fontSize: "1.3em", fontWeight: 700, color: white, fontFamily: font, marginBottom: 6 }}>{ev.name}</div>
+          {ev.subtitle && <div style={{ fontSize: "0.925em", color: whiteD, fontFamily: font, lineHeight: 1.6, marginBottom: 12 }}>{ev.subtitle}</div>}
+          {ev.location && <div style={{ fontSize: "0.8625em", color: whiteDD, display: "flex", alignItems: "center", gap: 5, marginBottom: 16, fontFamily: "monospace" }}><IconPin color={whiteDD} size={13} />{ev.location}</div>}
           <div style={{ background: "rgba(0,0,0,0.25)", borderRadius: 10, padding: "12px 14px", marginBottom: 16 }}>
-            <div style={{ fontSize: 11, color: whiteDD, letterSpacing: 1, textTransform: "uppercase", fontFamily: font, marginBottom: 6 }}>About this session</div>
-            <div style={{ fontSize: 13, color: whiteD, fontFamily: font, lineHeight: 1.7 }}>Details for this session will be available closer to the festival. Check back soon!</div>
+            <div style={{ fontSize: "0.7375em", color: whiteDD, letterSpacing: 1, textTransform: "uppercase", fontFamily: font, marginBottom: 6 }}>About this session</div>
+            <div style={{ fontSize: "0.8625em", color: whiteD, fontFamily: font, lineHeight: 1.7 }}>Details for this session will be available closer to the festival. Check back soon!</div>
           </div>
-          {isAction ? (
+          {isAction && (
             <button onClick={() => { onRegister(ev.id); onClose(); }} style={{ ...btnPrimary, background: registered ? dayColor : white, color: registered ? white : C.darkBrown }}>
               {registered ? "✓ " + actionLabel : actionLabel}
-            </button>
-          ) : (
-            <button onClick={() => { onToggle(ev); onClose(); }} style={{ ...btnPrimary }}>
-              {inPlan ? "Remove from My Plan" : "Add to My Plan"}
             </button>
           )}
         </div>
@@ -302,6 +316,7 @@ export default function App() {
   const [feedbackSaved, setFeedbackSaved] = useState(false);
   const [notification, setNotification] = useState(null);
   const [modalSession, setModalSession] = useState(null);
+  const [overviewOpen, setOverviewOpen] = useState(false);
 
   const canSubmit = profile.name && profile.age && profile.gender && profile.reason;
   const toggleWorkshop = (ev) => {
@@ -314,6 +329,7 @@ export default function App() {
   };
   const inPlan = (id) => myPlan.some(x => x.id === id);
   const allPlanItems = festivalDays.flatMap(d => d.blocks.flatMap(b => b.events.filter(e => inPlan(e.id) || !!registered[e.id]).map(e => ({ ...e, dayLabel: d.day, dayColor: d.color, dayTheme: d.theme, dayDate: d.date }))));
+  const registeredItems = festivalDays.flatMap(d => d.blocks.flatMap(b => b.events.filter(e => !!registered[e.id]).map(e => ({ ...e, dayLabel: d.day, dayColor: d.color, dayTheme: d.theme, dayDate: d.date }))));
   const day = festivalDays[activeDay];
   const modalDay = modalSession ? festivalDays.find(fd => fd.blocks.some(b => b.events.some(e => e.id === modalSession.id))) : null;
 
@@ -323,36 +339,36 @@ export default function App() {
         <DotBg />
         <div style={{ position: "relative", zIndex: 1 }}>
           <div style={{ padding: "max(env(safe-area-inset-top, 0px), 44px) 24px 28px", textAlign: "center" }}>
-            <div style={{ fontSize: 11, color: whiteDD, letterSpacing: 3, textTransform: "uppercase", marginBottom: 16, fontFamily: font }}>Purple Maiʻa · 2026</div>
-            <div style={{ fontFamily: "'Knewave', sans-serif", fontSize: 52, color: "#FDF6EC", lineHeight: 1, marginBottom: 16, letterSpacing: 1 }}>EĀHOU FEST</div>
-            <div style={{ fontSize: 14, color: whiteD, fontFamily: font, marginBottom: 4 }}>May 1–3, 2026</div>
-            <div style={{ fontSize: 13, color: whiteDD, fontFamily: font }}>Mōʻiliʻili, Oʻahu</div>
+            <div style={{ fontSize: "0.7375em", color: whiteDD, letterSpacing: 3, textTransform: "uppercase", marginBottom: 16, fontFamily: font }}>Purple Maiʻa · 2026</div>
+            <div style={{ fontFamily: "'Knewave', sans-serif", fontSize: "3.3em", color: "#FDF6EC", lineHeight: 1, marginBottom: 16, letterSpacing: 1 }}>EĀHOU FEST</div>
+            <div style={{ fontSize: "0.925em", color: whiteD, fontFamily: font, marginBottom: 4 }}>May 1–3, 2026</div>
+            <div style={{ fontSize: "0.8625em", color: whiteDD, fontFamily: font }}>Mōʻiliʻili, Oʻahu</div>
             <div style={{ display: "flex", justifyContent: "center", gap: 10, marginTop: 18 }}>
-              {festivalDays.map(d => <div key={d.day} style={{ background: "rgba(255,255,255,0.15)", borderRadius: 20, padding: "4px 12px", fontSize: 11, color: white, fontFamily: font, fontStyle: "italic", border: "0.5px solid rgba(255,255,255,0.2)" }}>{d.theme}</div>)}
+              {festivalDays.map(d => <div key={d.day} style={{ background: "rgba(255,255,255,0.15)", borderRadius: 20, padding: "4px 12px", fontSize: "0.7375em", color: white, fontFamily: font, fontStyle: "italic", border: "0.5px solid rgba(255,255,255,0.2)" }}>{d.theme}</div>)}
             </div>
           </div>
           <div style={{ padding: "0 20px 40px" }}>
-            <p style={{ fontSize: 16, fontWeight: 600, color: white, marginBottom: 2, fontFamily: font }}>Welina mai — Let's create your Eahou profile</p>
-            <p style={{ fontSize: 13, color: whiteD, marginBottom: 20, fontFamily: font }}>Fill in your details to access the festival app.</p>
+            <p style={{ fontSize: "1.05em", fontWeight: 600, color: white, marginBottom: 2, fontFamily: font }}>Welina mai — Let's create your Eahou profile</p>
+            <p style={{ fontSize: "0.8625em", color: whiteD, marginBottom: 20, fontFamily: font }}>Fill in your details to access the festival app.</p>
             <div style={card}>
               {[{ label: "Full name", key: "name", type: "text", ph: "e.g. Hunter Naho'oikaika" }, { label: "Age", key: "age", type: "number", ph: "e.g. 24" }].map(f => (
                 <div key={f.key} style={{ marginBottom: 14 }}>
-                  <label style={{ fontSize: 12, color: whiteD, marginBottom: 6, display: "block", fontFamily: font }}>{f.label}</label>
+                  <label style={{ fontSize: "0.8625em", color: whiteD, marginBottom: 6, display: "block", fontFamily: font }}>{f.label}</label>
                   <input style={inp} type={f.type} placeholder={f.ph} value={profile[f.key]} onChange={e => setProfile({ ...profile, [f.key]: e.target.value })} />
                 </div>
               ))}
               <div style={{ marginBottom: 14 }}>
-                <label style={{ fontSize: 12, color: whiteD, marginBottom: 6, display: "block", fontFamily: font }}>Gender</label>
+                <label style={{ fontSize: "0.8625em", color: whiteD, marginBottom: 6, display: "block", fontFamily: font }}>Gender</label>
                 <select style={inp} value={profile.gender} onChange={e => setProfile({ ...profile, gender: e.target.value })}>
                   <option value="">Select...</option><option>Male</option><option>Female</option><option>Non-binary</option><option>Prefer not to say</option>
                 </select>
               </div>
               <div style={{ marginBottom: 20 }}>
-                <label style={{ fontSize: 12, color: whiteD, marginBottom: 6, display: "block", fontFamily: font }}>Why are you attending Eahou Fest?</label>
+                <label style={{ fontSize: "0.8625em", color: whiteD, marginBottom: 6, display: "block", fontFamily: font }}>Why are you attending Eahou Fest?</label>
                 <textarea style={{ ...inp, minHeight: 90, resize: "vertical" }} placeholder="Tell us what brings you here..." value={profile.reason} onChange={e => setProfile({ ...profile, reason: e.target.value })} />
               </div>
               <button style={{ ...btnPrimary, opacity: canSubmit ? 1 : 0.5 }} onClick={() => { if (canSubmit) setScreen("app"); }}>Enter Eahou Fest →</button>
-              {!canSubmit && <p style={{ fontSize: 11, color: whiteDD, textAlign: "center", marginTop: 8, fontFamily: font }}>Please fill in all fields to continue</p>}
+              {!canSubmit && <p style={{ fontSize: "0.7375em", color: whiteDD, textAlign: "center", marginTop: 8, fontFamily: font }}>Please fill in all fields to continue</p>}
             </div>
           </div>
         </div>
@@ -365,97 +381,112 @@ export default function App() {
       <DotBg />
       <div style={{ position: "relative", zIndex: 1 }}>
         {notification && (
-          <div style={{ position: "fixed", top: "max(env(safe-area-inset-top, 0px), 16px)", left: "50%", transform: "translateX(-50%)", background: "rgba(255,255,255,0.95)", color: C.darkBrown, borderRadius: 20, padding: "10px 20px", fontSize: 13, fontWeight: 500, zIndex: 100, whiteSpace: "nowrap", fontFamily: font, display: "flex", alignItems: "center", gap: 8 }}>
+          <div style={{ position: "fixed", top: "max(env(safe-area-inset-top, 0px), 16px)", left: "50%", transform: "translateX(-50%)", background: "rgba(255,255,255,0.95)", color: C.darkBrown, borderRadius: 20, padding: "10px 20px", fontSize: "0.8625em", fontWeight: 500, zIndex: 100, whiteSpace: "nowrap", fontFamily: font, display: "flex", alignItems: "center", gap: 8 }}>
             <IconBell color={C.orange} size={15} /> {notification}
           </div>
         )}
         <div style={{ padding: "24px 20px 16px" }}>
-          <div style={{ fontSize: 11, color: whiteDD, letterSpacing: 2, textTransform: "uppercase", marginBottom: 8, fontFamily: font }}>Purple Maiʻa · 2026</div>
-          <div style={{ fontFamily: "'Knewave', sans-serif", fontSize: 42, color: "#FDF6EC", lineHeight: 1, marginBottom: 6, letterSpacing: 1 }}>EĀHOU FEST</div>
-          <div style={{ fontSize: 13, color: whiteD, fontFamily: font }}>May 1–3, 2026 · Mōʻiliʻili, Oʻahu</div>
+          <div style={{ fontSize: "0.7375em", color: whiteDD, letterSpacing: 2, textTransform: "uppercase", marginBottom: 8, fontFamily: font }}>Purple Maiʻa · 2026</div>
+          <div style={{ fontFamily: "'Knewave', sans-serif", fontSize: "2.675em", color: "#FDF6EC", lineHeight: 1, marginBottom: 6, letterSpacing: 1 }}>EĀHOU FEST</div>
+          <div style={{ fontSize: "0.8625em", color: whiteD, fontFamily: font }}>May 1–3, 2026 · Mōʻiliʻili, Oʻahu</div>
         </div>
         <div style={{ padding: "0 16px" }}>
 
           {view === "myplan" && (
             <div>
-              <p style={{ fontSize: 18, fontWeight: 700, color: white, marginBottom: 16, fontFamily: font }}>Aloha, {profile.name}</p>
+              <p style={{ fontSize: "1.175em", fontWeight: 700, color: white, marginBottom: 16, fontFamily: font }}>Aloha, {profile.name}</p>
               <div style={{ background: "rgba(0,0,0,0.35)", border: "0.5px solid rgba(255,255,255,0.2)", borderRadius: 16, padding: "20px", marginBottom: 14, position: "relative", overflow: "hidden" }}>
                 <div style={{ position: "absolute", inset: 0, opacity: 0.06, backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "12px 12px", pointerEvents: "none" }} />
                 <div style={{ position: "relative" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 14 }}>
                     <div>
-                      <div style={{ fontSize: 10, color: whiteDD, letterSpacing: 2, textTransform: "uppercase", fontFamily: font, marginBottom: 4 }}>Attendee</div>
-                      <div style={{ fontSize: 20, fontWeight: 700, color: white, fontFamily: font }}>{profile.name}</div>
+                      <div style={{ fontSize: "0.675em", color: whiteDD, letterSpacing: 2, textTransform: "uppercase", fontFamily: font, marginBottom: 4 }}>Attendee</div>
+                      <div style={{ fontSize: "1.425em", fontWeight: 700, color: white, fontFamily: font }}>{profile.name}</div>
                     </div>
                     <div style={{ background: "rgba(255,255,255,0.12)", borderRadius: 10, padding: "8px 10px" }}><IconFlower color="rgba(255,255,255,0.8)" size={28} /></div>
                   </div>
                   <div style={{ display: "flex", gap: 20, marginBottom: 14 }}>
-                    {[["Age", profile.age], ["Gender", profile.gender], ["Sessions", `${allPlanItems.length} added`]].map(([l, v]) => (
-                      <div key={l}><div style={{ fontSize: 10, color: whiteDD, fontFamily: font }}>{l}</div><div style={{ fontSize: 13, color: white, fontWeight: 500, fontFamily: font }}>{v}</div></div>
+                    {[["Age", profile.age], ["Gender", profile.gender], ["Sessions", `${registeredItems.length} registered`]].map(([l, v]) => (
+                      <div key={l}><div style={{ fontSize: "0.675em", color: whiteDD, fontFamily: font }}>{l}</div><div style={{ fontSize: "0.8625em", color: white, fontWeight: 500, fontFamily: font }}>{v}</div></div>
                     ))}
                   </div>
                   <div style={{ borderTop: "0.5px solid rgba(255,255,255,0.15)", paddingTop: 12, marginBottom: 14 }}>
-                    <div style={{ fontSize: 10, color: whiteDD, fontFamily: font, marginBottom: 4 }}>Attending because</div>
-                    <div style={{ fontSize: 12, color: whiteD, fontFamily: font, fontStyle: "italic" }}>"{profile.reason}"</div>
+                    <div style={{ fontSize: "0.675em", color: whiteDD, fontFamily: font, marginBottom: 4 }}>Attending because</div>
+                    <div style={{ fontSize: "0.8em", color: whiteD, fontFamily: font, fontStyle: "italic" }}>"{profile.reason}"</div>
                   </div>
                   <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                    {festivalDays.map(d => <div key={d.day} style={{ background: d.color, borderRadius: 20, padding: "3px 10px", fontSize: 10, color: white, fontFamily: font, fontWeight: 600 }}>{d.theme}</div>)}
+                    {festivalDays.map(d => <div key={d.day} style={{ background: d.color, borderRadius: 20, padding: "3px 10px", fontSize: "0.675em", color: white, fontFamily: font, fontWeight: 600 }}>{d.theme}</div>)}
                   </div>
                 </div>
               </div>
-              <MeaningWidget />
+              <div style={{ ...card, marginBottom: 14 }}>
+                <div style={{ fontSize: "0.8625em", fontWeight: 600, color: white, fontFamily: font, marginBottom: 12 }}>
+                  Your plan{registeredItems.length > 0 ? ` · ${registeredItems.length} session${registeredItems.length !== 1 ? "s" : ""}` : ""}
+                </div>
+                {registeredItems.length === 0 ? (
+                  <div style={{ textAlign: "center", padding: "18px 0 8px" }}>
+                    <div style={{ fontSize: "0.8625em", color: whiteDD, fontFamily: font, marginBottom: 6 }}>No sessions registered yet</div>
+                    <div style={{ fontSize: "0.7375em", color: whiteDD, fontFamily: font, opacity: 0.7 }}>Pre-register or RSVP for events to see them here</div>
+                  </div>
+                ) : (
+                  <>
+                    {festivalDays.map(d => {
+                      const items = registeredItems.filter(x => x.dayLabel === d.day);
+                      if (!items.length) return null;
+                      const dimC = d.color === "#5b0a38" ? "#d080b0" : d.color === "#f6bb35" ? "#c89a00" : d.color;
+                      return (
+                        <div key={d.day} style={{ marginBottom: 12 }}>
+                          <div style={{ fontSize: "0.7375em", fontWeight: 600, color: dimC, marginBottom: 8, fontFamily: font, display: "flex", alignItems: "center", gap: 5 }}>
+                            <div style={{ width: 7, height: 7, borderRadius: "50%", background: d.color }} />{d.day} · {d.date} — {d.theme}
+                          </div>
+                          {items.map(ev => (
+                            <div key={ev.id} style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", background: `${d.color}22`, border: `0.5px solid ${d.color}55`, borderRadius: 10, marginBottom: 6 }}>
+                              <div style={{ textAlign: "center", minWidth: 48, flexShrink: 0 }}>
+                                <div style={{ fontSize: "0.675em", color: white, fontWeight: 600, fontFamily: font }}>{ev.start.split(" ")[1]}</div>
+                                <div style={{ fontSize: "0.8em", fontWeight: 600, color: white, fontFamily: font }}>{ev.start.split(" ")[0]}</div>
+                              </div>
+                              <div style={{ flex: 1 }}>
+                                <div style={{ fontSize: "0.8em", fontWeight: 500, color: white, fontFamily: font }}>{ev.name}</div>
+                                {ev.location && <div style={{ fontSize: "0.7375em", color: whiteDD, fontFamily: font }}>{ev.location}</div>}
+                              </div>
+                              <IconBell color={d.color} size={16} />
+                            </div>
+                          ))}
+                        </div>
+                      );
+                    })}
+                    <div style={{ fontSize: "0.7375em", color: whiteDD, display: "flex", alignItems: "center", gap: 6, fontFamily: font, borderTop: "0.5px solid rgba(255,255,255,0.1)", paddingTop: 10 }}>
+                      <IconBell color={C.tan} size={14} /> Reminders set 15 min before each session
+                    </div>
+                  </>
+                )}
+              </div>
             </div>
           )}
 
           {view === "schedule" && (
             <div>
-              <p style={{ fontSize: 15, fontWeight: 600, color: white, marginBottom: 14, fontFamily: font }}>Festival schedule</p>
-              {allPlanItems.length > 0 && (
-                <div style={{ ...card, marginBottom: 16 }}>
-                  <div style={{ fontSize: 13, fontWeight: 600, color: white, fontFamily: font, marginBottom: 12 }}>Your plan · {allPlanItems.length} session{allPlanItems.length !== 1 ? "s" : ""}</div>
-                  {festivalDays.map(d => {
-                    const items = allPlanItems.filter(x => x.dayLabel === d.day);
-                    if (!items.length) return null;
-                    const dimC = d.color === "#5b0a38" ? "#d080b0" : d.color === "#f6bb35" ? "#c89a00" : d.color;
-                    return (
-                      <div key={d.day} style={{ marginBottom: 12 }}>
-                        <div style={{ fontSize: 11, fontWeight: 600, color: dimC, marginBottom: 8, fontFamily: font, display: "flex", alignItems: "center", gap: 5 }}>
-                          <div style={{ width: 7, height: 7, borderRadius: "50%", background: d.color }} />{d.day} · {d.date} — {d.theme}
-                        </div>
-                        {items.map(ev => (
-                          <div key={ev.id} style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", background: `${d.color}22`, border: `0.5px solid ${d.color}55`, borderRadius: 10, marginBottom: 6 }}>
-                            <div style={{ textAlign: "center", minWidth: 48, flexShrink: 0 }}>
-                              <div style={{ fontSize: 10, color: white, fontWeight: 600, fontFamily: font }}>{ev.start.split(" ")[1]}</div>
-                              <div style={{ fontSize: 12, fontWeight: 600, color: white, fontFamily: font }}>{ev.start.split(" ")[0]}</div>
-                            </div>
-                            <div style={{ flex: 1 }}>
-                              <div style={{ fontSize: 12, fontWeight: 500, color: white, fontFamily: font }}>{ev.name}</div>
-                              {ev.location && <div style={{ fontSize: 11, color: whiteDD, fontFamily: font }}>{ev.location}</div>}
-                            </div>
-                            <IconBell color={d.color} size={16} />
-                          </div>
-                        ))}
-                      </div>
-                    );
-                  })}
-                  <div style={{ fontSize: 11, color: whiteDD, display: "flex", alignItems: "center", gap: 6, fontFamily: font, borderTop: "0.5px solid rgba(255,255,255,0.1)", paddingTop: 10 }}>
-                    <IconBell color={C.tan} size={14} /> Reminders set 15 min before each session
-                  </div>
-                </div>
-              )}
+              <div style={{ background: "rgba(0,0,0,0.30)", border: "0.5px solid rgba(255,255,255,0.18)", borderRadius: 12, marginBottom: 16, overflow: "hidden" }}>
+                <button onClick={() => setOverviewOpen(o => !o)} style={{ width: "100%", background: "none", border: "none", cursor: "pointer", padding: "14px 16px", display: "flex", alignItems: "center", justifyContent: "space-between", fontFamily: font }}>
+                  <span style={{ fontSize: "0.8625em", fontWeight: 600, color: white }}>Overview</span>
+                  <span style={{ color: whiteDD, fontSize: "0.8625em", transform: overviewOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s", display: "inline-block" }}>▾</span>
+                </button>
+                {overviewOpen && <div style={{ borderTop: "0.5px solid rgba(255,255,255,0.1)" }}><MeaningWidget /></div>}
+              </div>
+              <p style={{ fontSize: "0.9875em", fontWeight: 600, color: white, marginBottom: 14, fontFamily: font }}>Festival schedule</p>
               <div style={{ display: "flex", gap: 8, marginBottom: 14 }}>
                 {festivalDays.map((d, i) => (
                   <button key={i} onClick={() => setActiveDay(i)} style={{ flex: 1, padding: "8px 6px", borderRadius: 8, cursor: "pointer", fontFamily: font, background: activeDay === i ? d.color : "rgba(0,0,0,0.28)", color: activeDay === i ? white : whiteD, border: `0.5px solid ${activeDay === i ? d.color : "rgba(255,255,255,0.18)"}`, fontWeight: activeDay === i ? 600 : 400, textAlign: "center" }}>
-                    <div style={{ fontSize: 12 }}>{d.day}</div>
-                    <div style={{ fontSize: 10, opacity: 0.85 }}>{d.date}</div>
-                    <div style={{ fontSize: 10, marginTop: 2, fontStyle: "italic", opacity: 0.8 }}>{d.theme}</div>
+                    <div style={{ fontSize: "0.925em" }}>{d.day}</div>
+                    <div style={{ fontSize: "0.8em", opacity: 0.85 }}>{d.date}</div>
+                    <div style={{ fontSize: "0.7375em", marginTop: 2, fontStyle: "italic", opacity: 0.8 }}>{d.theme}</div>
                   </button>
                 ))}
               </div>
               <div style={{ borderRadius: 10, padding: "10px 14px", marginBottom: 16, background: "rgba(0,0,0,0.25)", border: `0.5px solid ${day.color}88`, display: "flex", alignItems: "center", gap: 8 }}>
                 <div style={{ width: 10, height: 10, borderRadius: "50%", background: day.color, flexShrink: 0 }} />
-                <span style={{ fontSize: 13, fontWeight: 600, color: day.color === "#5b0a38" ? "#d080b0" : day.color, fontFamily: font }}>{day.theme}</span>
-                <span style={{ fontSize: 12, color: whiteD, fontFamily: font }}>· {day.day}, {day.date}</span>
+                <span style={{ fontSize: "0.9875em", fontWeight: 600, color: day.color === "#5b0a38" ? "#d080b0" : day.color, fontFamily: font }}>{day.theme}</span>
+                <span style={{ fontSize: "0.8625em", color: whiteD, fontFamily: font }}>· {day.day}, {day.date}</span>
               </div>
               {day.blocks.map((block, bi) => (
                 <div key={bi}>
@@ -464,7 +495,7 @@ export default function App() {
                     <SessionCard key={ev.id} ev={ev} dayColor={day.color} inPlan={inPlan(ev.id)} registered={!!registered[ev.id]} onToggle={toggleWorkshop} onRegister={toggleRegistered} onMore={setModalSession} />
                   ))}
                   {block.footer && (
-                    <div style={{ fontSize: 11, color: whiteDD, fontFamily: "monospace", letterSpacing: 0.3, padding: "4px 4px 12px", fontStyle: "italic" }}>{block.footer}</div>
+                    <div style={{ fontSize: "1.0625em", color: whiteDD, fontFamily: "monospace", letterSpacing: 0.3, padding: "4px 4px 12px", fontStyle: "italic" }}>{block.footer}</div>
                   )}
                 </div>
               ))}
@@ -473,17 +504,17 @@ export default function App() {
 
           {view === "feedback" && (
             <div>
-              <p style={{ fontSize: 15, fontWeight: 600, color: white, marginBottom: 14, fontFamily: font }}>Share your feedback</p>
+              <p style={{ fontSize: "0.9875em", fontWeight: 600, color: white, marginBottom: 14, fontFamily: font }}>Share your feedback</p>
               {feedbackSaved ? (
                 <div style={{ ...card, padding: "28px 16px", textAlign: "center" }}>
                   <div style={{ display: "flex", justifyContent: "center", marginBottom: 10 }}><IconFlower color={C.tan} size={36} /></div>
-                  <div style={{ fontWeight: 600, fontSize: 16, color: white, marginBottom: 6, fontFamily: font }}>Mahalo for your feedback!</div>
-                  <div style={{ fontSize: 13, color: whiteD, fontFamily: font }}>Your response helps us make Eahou Fest even better next year.</div>
+                  <div style={{ fontWeight: 600, fontSize: "1.05em", color: white, marginBottom: 6, fontFamily: font }}>Mahalo for your feedback!</div>
+                  <div style={{ fontSize: "0.8625em", color: whiteD, fontFamily: font }}>Your response helps us make Eahou Fest even better next year.</div>
                 </div>
               ) : (
                 <div>
                   <div style={card}>
-                    <label style={{ fontSize: 12, color: whiteD, marginBottom: 12, display: "block", fontFamily: font }}>How would you describe your overall experience at Eahou Fest?</label>
+                    <label style={{ fontSize: "0.8625em", color: whiteD, marginBottom: 12, display: "block", fontFamily: font }}>How would you describe your overall experience at Eahou Fest?</label>
                     <div style={{ display: "flex", gap: 8, marginBottom: 4 }}>
                       {[1,2,3,4,5].map(n => (
                         <button key={n} onClick={() => setFeedback({ ...feedback, overall: n })} style={{ flex: 1, padding: "10px 0", borderRadius: 8, cursor: "pointer", border: `0.5px solid ${feedback.overall >= n ? C.gold : "rgba(255,255,255,0.2)"}`, background: feedback.overall >= n ? "rgba(232,160,32,0.25)" : "rgba(0,0,0,0.2)", display: "flex", justifyContent: "center" }}>
@@ -491,7 +522,7 @@ export default function App() {
                         </button>
                       ))}
                     </div>
-                    <div style={{ fontSize: 11, color: whiteDD, textAlign: "center", fontFamily: font }}>{["","Poor","Fair","Good","Great","Excellent"][feedback.overall] || "Tap to rate"}</div>
+                    <div style={{ fontSize: "0.7375em", color: whiteDD, textAlign: "center", fontFamily: font }}>{["","Poor","Fair","Good","Great","Excellent"][feedback.overall] || "Tap to rate"}</div>
                   </div>
                   {[
                     { key: "highlight", label: "What was the most meaningful or impactful part of your experience?", ph: "e.g. The closing ceremony was unforgettable..." },
@@ -499,15 +530,15 @@ export default function App() {
                     { key: "improve", label: "What could we improve?", ph: "Any suggestions are welcome..." },
                   ].map(f => (
                     <div key={f.key} style={card}>
-                      <label style={{ fontSize: 12, color: whiteD, marginBottom: 6, display: "block", fontFamily: font }}>{f.label}</label>
+                      <label style={{ fontSize: "0.8625em", color: whiteD, marginBottom: 6, display: "block", fontFamily: font }}>{f.label}</label>
                       <textarea style={{ ...inp, minHeight: 80, resize: "vertical" }} placeholder={f.ph} value={feedback[f.key] || ""} onChange={e => setFeedback({ ...feedback, [f.key]: e.target.value })} />
                     </div>
                   ))}
                   <div style={card}>
-                    <label style={{ fontSize: 12, color: whiteD, marginBottom: 10, display: "block", fontFamily: font }}>Would you recommend Eahou Fest to others?</label>
+                    <label style={{ fontSize: "0.8625em", color: whiteD, marginBottom: 10, display: "block", fontFamily: font }}>Would you recommend Eahou Fest to others?</label>
                     <div style={{ display: "flex", gap: 8 }}>
                       {["Definitely", "Maybe", "No"].map(opt => (
-                        <button key={opt} onClick={() => setFeedback({ ...feedback, recommend: opt })} style={{ flex: 1, padding: "9px 0", borderRadius: 8, cursor: "pointer", fontSize: 12, fontFamily: font, background: feedback.recommend === opt ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.2)", color: feedback.recommend === opt ? white : whiteD, border: `0.5px solid ${feedback.recommend === opt ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.2)"}`, fontWeight: feedback.recommend === opt ? 600 : 400 }}>{opt}</button>
+                        <button key={opt} onClick={() => setFeedback({ ...feedback, recommend: opt })} style={{ flex: 1, padding: "9px 0", borderRadius: 8, cursor: "pointer", fontSize: "0.8em", fontFamily: font, background: feedback.recommend === opt ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.2)", color: feedback.recommend === opt ? white : whiteD, border: `0.5px solid ${feedback.recommend === opt ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.2)"}`, fontWeight: feedback.recommend === opt ? 600 : 400 }}>{opt}</button>
                       ))}
                     </div>
                   </div>
@@ -519,7 +550,7 @@ export default function App() {
         </div>
         <nav style={{ position: "fixed", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "100%", maxWidth: 480, background: "rgba(61,26,8,0.97)", borderTop: "0.5px solid rgba(255,255,255,0.12)", display: "flex", zIndex: 10, paddingBottom: "env(safe-area-inset-bottom, 0px)" }}>
           {VIEWS.map((v, i) => (
-            <button key={v} onClick={() => setView(v)} style={{ flex: 1, padding: "12px 0 10px", border: "none", background: "none", cursor: "pointer", fontSize: 11, color: view === v ? C.tan : whiteDD, fontWeight: view === v ? 600 : 400, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, fontFamily: font, WebkitTapHighlightColor: "transparent" }}>
+            <button key={v} onClick={() => setView(v)} style={{ flex: 1, padding: "12px 0 10px", border: "none", background: "none", cursor: "pointer", fontSize: "0.8em", color: view === v ? C.tan : whiteDD, fontWeight: view === v ? 600 : 400, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, fontFamily: font, WebkitTapHighlightColor: "transparent" }}>
               <NavIcon v={v} active={view === v} />
               {NAV_LABELS[i]}
             </button>
